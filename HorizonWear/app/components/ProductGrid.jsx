@@ -58,12 +58,12 @@ export default function ProductGrid() {
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {cachedResults.map((product) => (
-        <div key={product._id} className="border border-gray-200 rounded-md p-4 hover:shadow-lg">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    {cachedResults.map((product) => (
+      <div key={product._id} className="border border-gray-200 rounded-md p-4 hover:shadow-lg">
         <Link href={`/product/${product.slug}`} key={product._id}>
           <div className="flex justify-center h-[20rem]">
-            <div className="aspect-w-2 aspect-h-3 bg-cover">
+            <div className="aspect-w-2 aspect-h-3 bg-cover flex items-center justify-center"> {/* Add 'flex items-center justify-center' here */}
               <img src={product.images[0]} alt={product.name} className="max-h-full object-contain" />
             </div>
           </div>
@@ -96,24 +96,22 @@ export default function ProductGrid() {
           </button>
         </div>
       </div>
-        ))}
-
-        {/* Render the CartDropdown component and pass the cartOpen state */}
-        {cartOpen && <CartDropdown setOpen={setCartOpen} />}
-      </div>
-      <ToastContainer
-        position="bottom-right"
-        autoClose={1000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-    </div>
-
+    ))}
+    {/* Render the CartDropdown component and pass the cartOpen state */}
+    {cartOpen && <CartDropdown setOpen={setCartOpen} />}
+  </div>
+  <ToastContainer
+    position="bottom-right"
+    autoClose={1000}
+    hideProgressBar={false}
+    newestOnTop={false}
+    closeOnClick
+    rtl={false}
+    pauseOnFocusLoss
+    draggable
+    pauseOnHover
+    theme="light"
+  />
+</div>
   );
 }
