@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation';
 import { CartContext } from '@/context/CartContext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Image from 'next/image';
 
 const ProductPage = () => {
   const [images, setImages] = useState({});
@@ -36,7 +37,7 @@ const ProductPage = () => {
       };
       fetchData();
     }
-  }, []);
+  }, [results, slug]);
 
   const notify = () => toast.success('Product has been added to cart 🚀', {
     position: "bottom-right",
@@ -64,7 +65,7 @@ const ProductPage = () => {
     <div>
       <div className='flex flex-col justify-between lg:flex-row gap-16 lg:items-center'>
         <div className='flex flex-col pl-5 gap-6 lg:w-2/4'>
-          <img
+          <Image
             src={activeImg || images[0]} // Use activeImg if available, else fallback to the first image
             alt=''
             className='w-[500px] h-[500px] aspect-square object-cover rounded-xl justify-center'
@@ -72,7 +73,7 @@ const ProductPage = () => {
           <div className='flex flex-row flex-start space-x-10 h-24'>
             {/* Thumbnails */}
             {Object.keys(images).map((key, index) => (
-              <img
+              <Image
                 key={index}
                 src={images[key]}
                 alt={`Thumbnail ${index}`}

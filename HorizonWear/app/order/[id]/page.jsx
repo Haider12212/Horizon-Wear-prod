@@ -32,7 +32,7 @@ const OrderConfirmation = () => {
               Thank you for your order! Your order is being processed.
             </p>
             <p className="text-4x font-bold">Your Order Id is {id}</p>
-            <p className="text-gray-600">We'll keep you updated via email.</p>
+            <p className="text-gray-600">We will keep you updated via email.</p>
           </div>
         </div>
       </div>

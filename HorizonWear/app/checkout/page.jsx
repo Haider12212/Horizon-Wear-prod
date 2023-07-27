@@ -201,11 +201,13 @@ cart.forEach((product) => {
           </p>
           {cart.map((product) => (
             <Cart
+              key={product._id}
               image={product.images[0]}
               title={product.title}
               category={product.category}
               quantity={product.itemQuantity}
               price={product.price}
+
             />
           ))}
           <p class="mt-8 text-lg font-medium">Shipping Methods</p>
